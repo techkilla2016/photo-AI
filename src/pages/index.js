@@ -40,15 +40,36 @@ const Home = () => {
   }
 
 
+  const handleEnhance = (encodedImage) => {
+    const API_KEY = 'wxjv437sjsyiv6u77';
+
+    const formData = new FormData();
+    formData.append('sync', '1');
+    formData.append('image_base64', encodedImage);
+    formData.append('type', 'face');
+
+    axios.post('https://techhk.aoscdn.com/api/tasks/visual/scale', formData, {
+      headers: {
+        'X-API-KEY': API_KEY,
+      },
+    }).then(response => {
+      console.log(response.data?.data?.image);
+      setResult(response.data?.data?.image)
+      setIsLoad(false)
+    }).catch(error => {
+      console.log(error)
+    });
+  }
+
+
   const handleGenrate = async () => {
     setIsLoad(true)
     try {
       const res = await axios.post('https://71dc-103-17-110-126.ngrok-free.app/rec', {
         image: captureFile.split(',')[1],
-        choice:  UploadFile.split(',')[1],
+        choice: UploadFile.split(',')[1],
       })
-      setResult('data:image/jpeg;base64,' + res.data?.result)
-      setIsLoad(false)
+      handleEnhance(res.data?.result)
     } catch (error) {
       console.log(error?.message)
       setIsLoad(false)
