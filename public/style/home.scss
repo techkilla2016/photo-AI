@@ -1,0 +1,104 @@
+.start-btn {
+    font-weight: bold;
+    padding: 5px 30px;
+    border-radius: 20px;
+    margin: auto;
+}
+
+.fontPlus {
+    font-size: 120px;
+}
+
+.imgDemo {
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.upload-btn {
+    font-weight: bold;
+    border-radius: 25px;
+    padding: 3px 35px;
+    margin: 10px auto;
+}
+
+.drag {
+    border: 2px dashed #eccd1a;
+    border-radius: 10px;
+    background: #f5f3f3;
+    color: #73cffb;
+    font-size: 90px;
+    text-align: center;
+    cursor: pointer;
+    overflow: hidden;
+    padding: 1px;
+
+    img {
+        border-radius: 10px;
+    }
+}
+
+.genrate {
+    cursor: pointer;
+    border: 3px solid #fff;
+    border-radius: 10px;
+    overflow: hidden;
+
+    img {
+        transform: scale(1.1);
+        transition: all 0.2s linear;
+    }
+}
+
+.drop {
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.capture {
+    width: 100%;
+
+    video {
+        width: 100%;
+    }
+}
+
+.preview {
+    width: 100%;
+
+    img {
+        border: 2px solid #fff;
+        border-radius: 8px;
+    }
+}
+
+.selectImg {
+    transition: all 0.3s linear;
+    border-color: #000;
+}
+
+.isLoad {
+    width: 100%;
+    height: 100%;
+    background: rgba($color: #000000, $alpha: 0.7);
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    div {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+.finalImag {
+    width: 100%;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    overflow: hidden;
+}
