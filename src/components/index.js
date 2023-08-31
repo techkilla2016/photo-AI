@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Webcam from 'react-webcam';
-const Capture = ({ setImgFile }) => {
+const Capture = ({ setUploadFile }) => {
 
     const [cameraOn, setCameraOn] = useState(true);
     const [screenshot, setScreenshot] = useState(null);
@@ -12,7 +12,7 @@ const Capture = ({ setImgFile }) => {
 
     const handleScreenshot = () => {
         const screenshot = webcamRef.current.getScreenshot();
-        setImgFile(screenshot)
+        setUploadFile(screenshot)
         setScreenshot(screenshot);
         setCameraOn(false);
     }
