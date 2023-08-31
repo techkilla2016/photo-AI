@@ -44,8 +44,8 @@ const Home = () => {
     setIsLoad(true)
     try {
       const res = await axios.post('https://71dc-103-17-110-126.ngrok-free.app/rec', {
-        image: UploadFile.split(',')[1],
-        choice: captureFile.split(',')[1],
+        image: captureFile.split(',')[1],
+        choice:  UploadFile.split(',')[1],
       })
       setResult('data:image/jpeg;base64,' + res.data?.result)
       setIsLoad(false)
