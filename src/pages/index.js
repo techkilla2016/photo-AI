@@ -18,31 +18,33 @@ const Home = () => {
   // select image from computer 
   const changeFile = event => {
     const file = event.target.files[0]
+    const { name } = event.target
+    if (name !== 'model') {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = function () {
+        const base64String = reader.result;
+        setCaptureFile(base64String);
+      };
+    } else {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = function () {
+        const base64String = reader.result;
+        setUploadFile(base64String);
+      };
+    }
     setFiles(file)
   }
 
   // upload Image file 
   const uploadFile = () => {
-    const reader = new FileReader();
-    reader.readAsDataURL(files);
-    reader.onload = function () {
-      const base64String = reader.result;
-      setUploadFile(base64String);
-    };
-  }
 
-  // select Template 
-  const handleStart = () => {
-    console.log(UploadFile.split(',')[0])
-    if (UploadFile) {
-      // setIsUpload(true)
-    }
   }
 
 
   const handleEnhance = (encodedImage) => {
 
-    
     setResult(`data:image/webp;base64,${encodedImage}`)
     setIsLoad(false)
 
@@ -95,18 +97,18 @@ const Home = () => {
           <h1 className='text-center py-4'>Seclect the avatar to Genrate the image</h1>
           <Container className='px-5'>
             <Row>
-              <Col lg={7} className='my-4'>
+              {/* <Col lg={7} className='my-4'>
                 <div className="card p-4">
                   <div className="imgDemo">
                     <Capture setUploadFile={setCaptureFile} />
                   </div>
                 </div>
-              </Col>
+              </Col> */}
               <Col className='my-4'>
                 <div className="card p-4 drop">
-                  <h2 className='text-center'>Uplaod your photo</h2>
+                  <h2 className='text-center'>Uplaod model photo</h2>
                   <p className="text-center">Files uplaod JPG, PNG & HEIC</p>
-                  <input id='file' type="file" accept='image/*' className='d-none' onChange={changeFile} />
+                  <input id='file' type="file" name="model" accept='image/*' className='d-none' onChange={changeFile} />
                   {
                     UploadFile ? <label htmlFor='file' className="drag ">
                       <img src={UploadFile} alt="" />
@@ -115,9 +117,27 @@ const Home = () => {
                     </label>
                   }
                 </div>
-                <div className="d-flex justify-content-center py-3">
+                {/* <div className="d-flex justify-content-center py-3">
                   {files && <button className='btn btn-dark fs-2 upload-btn' onClick={uploadFile}>Upload</button>}
+                </div> */}
+              </Col>
+
+              <Col className='my-4'>
+                <div className="card p-4 drop">
+                  <h2 className='text-center'>Uplaod your photo</h2>
+                  <p className="text-center">Files uplaod JPG, PNG & HEIC</p>
+                  <input id='file1' type="file" name="" accept='image/*' className='d-none' onChange={changeFile} />
+                  {
+                    captureFile ? <label htmlFor='file1' className="drag ">
+                      <img src={captureFile} alt="" />
+                    </label> : <label htmlFor='file1' className="drag p-4">
+                      <BsFolderFill />
+                    </label>
+                  }
                 </div>
+                {/* <div className="d-flex justify-content-center py-3">
+                  {files && <button className='btn btn-dark fs-2 upload-btn' onClick={uploadFile}>Upload</button>}
+                </div> */}
               </Col>
             </Row>
             <div className="d-flex py-5">
