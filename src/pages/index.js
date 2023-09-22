@@ -61,6 +61,7 @@ const Home = () => {
     // }).then(response => {
     //   console.log(response.data?.data?.image);
     //   setResult(response.data?.data?.image)
+    
     //   setIsLoad(false)
     // }).catch(error => {
     //   console.log(error)
