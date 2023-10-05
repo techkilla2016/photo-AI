@@ -61,7 +61,7 @@ const Home = () => {
     // }).then(response => {
     //   console.log(response.data?.data?.image);
     //   setResult(response.data?.data?.image)
-    
+
     //   setIsLoad(false)
     // }).catch(error => {
     //   console.log(error)
@@ -73,7 +73,7 @@ const Home = () => {
     setIsLoad(true)
     try {
       console.log(captureFile)
-      const res = await axios.post('https://142f-103-17-110-97.ngrok-free.app/rec', {
+      const res = await axios.post('https://2cfe-103-17-110-97.ngrok-free.app/rec', {
         image: captureFile.split(',')[1],
         choice: UploadFile.split(',')[1],
       })
