@@ -72,14 +72,14 @@ const Home = () => {
   const handleGenrate = async () => {
     setIsLoad(true)
     try {
-      console.log(captureFile)
       const res = await axios.post('https://2cfe-103-17-110-97.ngrok-free.app/rec', {
         image: captureFile.split(',')[1],
         choice: UploadFile.split(',')[1],
       })
       handleEnhance(res.data?.result)
     } catch (error) {
-      console.log(error?.message)
+      console.log(error)
+      alert("Something Wrong")
       setIsLoad(false)
     }
   }
