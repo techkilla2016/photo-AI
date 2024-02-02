@@ -70,9 +70,10 @@ const Home = () => {
 
 
   const handleGenrate = async () => {
+    const api = 'https://396e-103-17-110-13.ngrok-free.app/rec';
     setIsLoad(true)
     try {
-      const res = await axios.post('https://b723-103-17-110-127.ngrok-free.app/rec', {
+      const res = await axios.post(api, {
         image: captureFile.split(',')[1],
         choice: UploadFile.split(',')[1],
       })
