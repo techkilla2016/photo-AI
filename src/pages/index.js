@@ -70,7 +70,7 @@ const Home = () => {
 
 
   const handleGenrate = async () => {
-    const api = 'https://fe99-103-17-110-127.ngrok-free.app/rec';
+    const api = 'https://843e-103-17-110-127.ngrok-free.app/rec';
     setIsLoad(true)
     try {
       const res = await axios.post(api, {
